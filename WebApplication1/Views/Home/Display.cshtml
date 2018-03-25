@@ -1,0 +1,83 @@
+﻿@model List<WebApplication1.Models.Student>
+
+@{
+    ViewBag.Title = "Display";
+}
+
+<h2>Display</h2>
+
+<h2> List of Students</h2>
+
+<table border="1">
+    <tr>
+        <td>
+            SID
+
+        </td>
+        <td>
+           Email
+        </td>
+        <td>
+            First_name
+        </td>
+        <td>
+            Last_name
+        </td>
+        <td>
+            Adress
+        </td>
+
+        <td>
+            Phone_number
+        </td>
+        <td>
+            code
+        </td>
+        <td>
+            FID
+        </td>
+    </tr>
+
+    @foreach (var s in Model)
+    {
+        <tr>
+            
+
+            <td>
+                @s.Email
+            </td>
+            <td>
+                @s.First_name
+            </td>
+            <td>
+                @s.Last_Name
+            </td>
+            <td>
+                @s.Adress
+            </td>
+            <td>
+                @s.Phone_number
+            </td>
+            <td>
+                @s.FID
+            </td>
+            <td>
+                @s.code
+            </td>
+
+            <td>
+                <a href="/Home/Update/@s.SID ">Update</a>
+            </td>
+            <td>
+                <a href="/Home/Delete/@s.SID ">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<a href="/Home/AddStudent">Insert</a>
+
+
+
+

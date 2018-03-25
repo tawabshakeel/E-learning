@@ -1,0 +1,88 @@
+﻿
+<header id="head" class="secondary">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1>Sign Up</h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+
+
+
+            <form class="form-light mt-20" role="form"
+                  action="/Home/addStudentconfirm" method="post" enctype="multipart/form-data">
+                <div class=" form-group">
+                @Html.Label("Profile Pic")
+                <input type="file" name="profile" />
+</div>
+                <div class="form-group">
+
+                    @Html.Label("Email")
+                    @Html.TextBox("Email", "", new { @class = "form-control", placeholder = "Email" })
+
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.Label("First Name")
+                            @Html.TextBox("First_name", "", new { @class = "form-control", placeholder = "First Name" })
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Last Name")
+                            @Html.TextBox("Last_Name", "", new { @class = "form-control", placeholder = "Last Name" })
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("Address")
+                    @Html.TextBox("Adress", "", new { @class = "form-control", placeholder = "Address" })
+
+                </div>
+                <div class="form-group">
+                    @Html.Label("Phone Number")
+                    @Html.TextBox("Phone_number", "", new { @class = "form-control", placeholder = "Phone number" })
+
+                </div>
+                <div class="form-group">
+                    @Html.Label(" Passowrd")
+                    @Html.TextBox("Passowrd", "", new { @class = "form-control", placeholder = "Password", type="password" })
+
+                </div>
+                <div class="form-group">
+                    @Html.Label("Type")
+                    <br />
+                    <input type="radio" name="type" value="1"> Student
+                    <input type="radio" name="type" value="2"> Teacher
+                </div>
+                
+                <br />
+                <br />
+                <input type="submit" class="btn btn-two" value="Add Student" />
+            </form>
+
+        </div>
+        <!-- /container -->
+    </div>
+</div>
+
+
+
+
+
+
+
+

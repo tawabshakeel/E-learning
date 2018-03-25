@@ -1,0 +1,59 @@
+﻿<header id="head" class="secondary">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1>Update</h1>
+            </div>
+        </div>
+    </div>
+</header>le det
+
+<!-- container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+
+
+
+            <form class="form-light mt-20" role="form"
+                  action="/Home/updateConfirmTeacher/@Model.TID " method="post">
+                <div class="form-group">
+
+                    @Html.Label("Email")
+                    @Html.TextBox("Email", @Html.Display("Email"), new { @class = "form-control" })
+
+
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.Label("First Name")
+                            @Html.TextBox("First_name", @Html.Display("First_name"), new { @class = "form-control" })
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Last Name")
+                            @Html.TextBox("Last_Name", @Html.Display("Last_Name"), new { @class = "form-control" })
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("Address")
+                    @Html.TextBox("Adress", @Html.Display("Adress"), new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    @Html.Label("Phoe Number")
+                    @Html.TextBox("Phone_number", @Html.Display("Phone_number"), new { @class = "form-control" })
+
+                </div>
+                <input type="submit" value="Update" />
+            </form>
+
+        </div>

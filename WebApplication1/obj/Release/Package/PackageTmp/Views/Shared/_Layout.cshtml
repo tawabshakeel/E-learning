@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="eLearning is a modern and fully responsive Template by WebThemez.">
+    <meta name="author" content="webThemez.com">
+    
+    <title>@ViewBag.Title - Virtual University</title>
+   
+    <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+   
+    
+
+</head>
+<body>
+    <div class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <!-- Button for smallest screens -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                <a class="navbar-brand" href="index-2.html">
+                    <img src="~/images/logo.png" alt="Techro HTML5 template">
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav pull-right mainNav">
+                    <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Courses", "Courses", "Home")</li>
+                    <li>@Html.ActionLink("Fees", "Fees", "Home")</li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/sidebar-right">Right Sidebar</a></li>
+                            <li><a href="#">Dummy Link1</a></li>
+                            <li><a href="#">Dummy Link2</a></li>
+                            <li><a href="#">Dummy Link3</a></li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("SignUp", "AddStudent", "Home")</li>
+
+                  <li data-toggle="modal" data-target="#myModal"><a>Login</a></li>
+
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+    <!-- /.navbar -->
+    
+        @RenderBody()
+        <hr />
+        <footer id="footer">
+            <div class="container">
+                <div class="social text-center">
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                    <a href="#"><i class="fa fa-flickr"></i></a>
+                    <a href="#"><i class="fa fa-github"></i></a>
+                </div>
+
+                <div class="clear"></div>
+                <!--CLEAR FLOATS-->
+            </div>
+            <div class="footer2">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-6 panel">
+                            <div class="panel-body">
+                                <p class="simplenav">
+                                    <a href="index-2.html">Home</a> |
+                                    <a href="about.html">About</a> |
+                                    <a href="courses.html">Courses</a> |
+                                    <a href="fees.html">Fees</a> |
+                                    <a href="portfolio.html">Portfolio</a> |
+                                    <a href="contact.html">Contact</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div id="myModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Login</h4>
+                                    </div>
+                                    <form class="form-light mt-20" role="form"
+                                          action="/Home/login" method="post">
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                @Html.Label("Email")
+                                                @Html.TextBox("email", "", new { @class = "form-control", placeholder = "Email" })
+
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.Label("Password")
+                                                <input type="password" class="form-control" placeholder="Password" name="password" />
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.Label("Type")
+                                                <input type="radio" name="type" value="1"> Student
+                                                <input type="radio" name="type" value="2"> Teacher  </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-default">Submit</button>
+                                            <a style="float: right; " href="/Home/forgetPass" >forget password?</a>
+                                        </div>
+                                        </form>
+</div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 panel">
+                            <div class="panel-body">
+                                <p class="text-right">
+                                    Copyright &copy; 2014. Template by <a href="http://webthemez.com/" rel="develop">WebThemez.com</a>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /row of panels -->
+                </div>
+            </div>
+        </footer>
+    
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

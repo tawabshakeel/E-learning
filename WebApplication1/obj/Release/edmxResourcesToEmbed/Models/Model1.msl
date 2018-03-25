@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities7">
+    <EntitySetMapping Name="Contact">
+      <EntityTypeMapping TypeName="Database1Model.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="message" ColumnName="message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="courses">
+      <EntityTypeMapping TypeName="Database1Model.courses">
+        <MappingFragment StoreEntitySet="courses">
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fees">
+      <EntityTypeMapping TypeName="Database1Model.fees">
+        <MappingFragment StoreEntitySet="fees">
+          <ScalarProperty Name="FID" ColumnName="FID" />
+          <ScalarProperty Name="plan_name" ColumnName="plan name" />
+          <ScalarProperty Name="fee_amount" ColumnName="fee amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Student">
+      <EntityTypeMapping TypeName="Database1Model.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="SID" ColumnName="SID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="First_name" ColumnName="First name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Phone_number" ColumnName="Phone number" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="FID" ColumnName="FID" />
+          <ScalarProperty Name="profile" ColumnName="profile" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentCourses">
+      <EntityTypeMapping TypeName="Database1Model.StudentCourses">
+        <MappingFragment StoreEntitySet="StudentCourses">
+          <ScalarProperty Name="scid" ColumnName="scid" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="SID" ColumnName="SID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teacher">
+      <EntityTypeMapping TypeName="Database1Model.Teacher">
+        <MappingFragment StoreEntitySet="Teacher">
+          <ScalarProperty Name="TID" ColumnName="TID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="First_name" ColumnName="First name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Phone_number" ColumnName="Phone number" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="profile" ColumnName="profile" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeachersVideo">
+      <EntityTypeMapping TypeName="Database1Model.TeachersVideo">
+        <MappingFragment StoreEntitySet="TeachersVideo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TID" ColumnName="TID" />
+          <ScalarProperty Name="vname" ColumnName="vname" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Videos">
+      <EntityTypeMapping TypeName="Database1Model.Videos">
+        <MappingFragment StoreEntitySet="Videos">
+          <ScalarProperty Name="Vid" ColumnName="Vid" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="TID" ColumnName="TID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

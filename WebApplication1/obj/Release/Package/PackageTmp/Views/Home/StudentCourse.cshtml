@@ -1,0 +1,88 @@
+﻿@model List<WebApplication1.Models.courses>
+@{
+    Layout=null;  
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Virtual University</title>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/selectize.js"></script>
+
+    <script src="~/Scripts/index.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    </head>
+<body>
+    <div class="container">
+        <label>Select the DropDowns</label>
+        <select id="select-tools"></select>
+        <button class="btn btn-default"  onclick="search()">Select Courses</button>
+    </div>
+   
+
+    <script>
+        $(document).ready(function () {
+            $('#select-tools').selectize({
+                maxItems: null,
+                valueField: 'id',
+                labelField: 'title',
+                searchField: 'title',
+              
+               options: [
+                    @foreach (var item in Model){
+                        <text>
+                        { id: '@item.code' , title: '@item.name' },
+                        </text>
+                 }
+                
+              
+
+
+                ],
+
+                create: false
+            });
+        });
+
+        function search() {
+
+            var courses = $('select').val();
+            
+            var user_id= @Session["id"]
+            console.log(user_id);
+            console.log(courses);
+            //var arr = courses.split(",");
+           // console.log(arr);
+            
+            $.ajax({
+                type: 'POST',
+                
+                traditional: true,
+                url: '/Home/courseSelected',
+                data: {
+                    courses: courses,
+                    user_id:user_id
+                },
+                //dataType: 'json',
+                error:function(data){
+                    console.log(data);
+                },
+                success: function (data) {
+                    console.log(data);
+                    window.location.href="/Home/studentProfile?student_id="+data;
+                }
+            });
+        }
+
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+

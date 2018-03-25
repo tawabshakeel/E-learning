@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" />
+    <Property Name="Email" Type="varchar(max)" />
+    <Property Name="Phone" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="subject" Type="varchar(max)" />
+    <Property Name="message" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="courses">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="CID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="description" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="fees">
+    <Key>
+      <PropertyRef Name="FID" />
+    </Key>
+    <Property Name="FID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="plan name" Type="varchar" MaxLength="10" />
+    <Property Name="fee amount" Type="int" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Name="SID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="First name" Type="varchar" MaxLength="30" />
+    <Property Name="Last Name" Type="varchar" MaxLength="30" />
+    <Property Name="Adress" Type="varchar(max)" />
+    <Property Name="Phone number" Type="int" />
+    <Property Name="code" Type="varchar" MaxLength="10" />
+    <Property Name="FID" Type="int" />
+    <Property Name="profile" Type="varchar" MaxLength="150" />
+    <Property Name="pass" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StudentCourses">
+    <Key>
+      <PropertyRef Name="scid" />
+    </Key>
+    <Property Name="scid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CID" Type="varchar" MaxLength="50" />
+    <Property Name="SID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="TID" />
+    </Key>
+    <Property Name="TID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="First name" Type="varchar" MaxLength="30" />
+    <Property Name="Last Name" Type="varchar" MaxLength="30" />
+    <Property Name="Adress" Type="varchar(max)" />
+    <Property Name="Phone number" Type="int" />
+    <Property Name="code" Type="varchar" MaxLength="10" />
+    <Property Name="profile" Type="varchar" MaxLength="150" />
+    <Property Name="pass" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TeachersVideo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TID" Type="varchar" MaxLength="50" />
+    <Property Name="vname" Type="varchar" MaxLength="50" />
+    <Property Name="CID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Videos">
+    <Key>
+      <PropertyRef Name="Vid" />
+    </Key>
+    <Property Name="Vid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="path" Type="varchar" MaxLength="50" />
+    <Property Name="description" Type="varchar" MaxLength="150" />
+    <Property Name="TID" Type="int" />
+  </EntityType>
+  <Association Name="FK_Student_courses">
+    <End Role="courses" Type="Self.courses" Multiplicity="0..1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_fees">
+    <End Role="fees" Type="Self.fees" Multiplicity="0..1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fees">
+        <PropertyRef Name="FID" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="FID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Teacher_courses">
+    <End Role="courses" Type="Self.courses" Multiplicity="0..1" />
+    <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="Teacher">
+        <PropertyRef Name="code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Video_Teacher">
+    <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
+    <End Role="Videos" Type="Self.Videos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="TID" />
+      </Principal>
+      <Dependent Role="Videos">
+        <PropertyRef Name="TID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Database1ModelStoreContainer">
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="courses" EntityType="Self.courses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="fees" EntityType="Self.fees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentCourses" EntityType="Self.StudentCourses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TeachersVideo" EntityType="Self.TeachersVideo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Student_courses" Association="Self.FK_Student_courses">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_fees" Association="Self.FK_Student_fees">
+      <End Role="fees" EntitySet="fees" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Teacher_courses" Association="Self.FK_Teacher_courses">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="Teacher" EntitySet="Teacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Video_Teacher" Association="Self.FK_Video_Teacher">
+      <End Role="Teacher" EntitySet="Teacher" />
+      <End Role="Videos" EntitySet="Videos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

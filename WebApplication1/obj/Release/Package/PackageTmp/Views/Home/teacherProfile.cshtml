@@ -1,0 +1,55 @@
+﻿@model List<WebApplication1.Models.TeachersVideo>
+    
+@{
+        Layout = null;
+    }
+
+
+
+    <link rel="stylesheet" href="~/Content/profile.css">
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="card hovercard">
+                    <div class="cardheader">
+                    </div>
+                    <div class="avatar">
+                        <img alt="" src="~/Content/profiles/@Session["profile"]">
+                    </div>
+                    <div class="info" style="background-color:white" >
+                        <div class=" title">
+                        <a>@Session["name"]</a>
+                            <a href="/Home/logout" style="float:right">Logout</a>
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1>@Session["id"]</h1>
+    <h1>@Session["code"]</h1>
+    <form action="/Home/saveVideo" method="post" enctype="multipart/form-data">
+        <input type="file" name="vidname" />
+        <input type="submit"  />
+        <input type="hidden" name="id" value="@Session["id"]" />
+        <input type="hidden" name="course_id" value="@Session["code"]" />
+
+    </form>
+
+ @if(Session["check"].Equals(1)) {
+     foreach (var vid in Model) { 
+     <video width="400" controls>
+    <source src="~/Content/Videos/@vid.vname" type="video/mp4">
+    Your browser does not support HTML5 video.
+</video>
+ }
+}
+ 
+     
+
+
+
+

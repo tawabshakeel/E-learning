@@ -1,0 +1,89 @@
+﻿
+<header id="head" class="secondary">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1>Update Password</h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+
+
+
+            
+               
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Email address">
+
+                   
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>New Password</label>
+                            <input type="password" id="pass" class="form-control" placeholder="New Password">
+
+                        </div>
+                    </div>
+                    </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="radio" name="type" value="0"> Teacher <br>
+                            <input type="radio" name="type" value="1"> Student<br>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <button onclick="updatePass()" class="btn btn-two"  />Update Password
+            
+
+        </div>
+        <!-- /container -->
+    </div>
+</div>
+<script>
+    function updatePass() {
+        var email = $("#email").val();
+        var pass = $("#pass").val();
+        var type = $("input[name='type']:checked").val();
+         $.ajax({
+            type: 'POST',
+            url: '/Home/updatePass',
+            data: {
+                email: email,
+                pass: pass,
+                type:type
+               
+            },
+            success: function (result) {
+                alert("password updated");
+                $("#email").val('');
+                 $("#pass").val('');
+                 $("input[name='type']:checked").val('');
+            }
+
+
+        });
+
+
+
+    }
+</script>
+
+
+
+
+
+
+

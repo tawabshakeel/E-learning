@@ -1,0 +1,177 @@
+﻿@using WebApplication1.Models
+@model dynamic
+
+    <center><div class="container"><h3>Admin Panel</h3></div></center>
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#course">AddCourse</a></li>
+            <li><a data-toggle="tab" href="#menu1">Update Student</a></li>
+            <li><a data-toggle="tab" href="#menu2">Update Teacher</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="course" class="tab-pane fade in active">
+                <h3>Add Course</h3>
+                <form class="form-light mt-20" role="form"
+                      action="/Home/addCourse" method="post">
+                    @Html.Label("Course Code")
+                    <input class="form-control" name='code' placeholder="Course Code" required/>
+                    @Html.Label("Course Name")
+                    <input class="form-control" name="name" placeholder="Course Name" required />
+
+                    @Html.Label("Description")
+                    <input class="form-control" name="description" placeholder="Course Description" required />
+                    <input type="submit" class="btn btn-success" />
+                    </form>
+            </div>
+            <div id="menu1" class="tab-pane fade"> 
+                 <h3>Students</h3>
+                <table border="1">
+                    <tr>
+                        <td>
+                            SID
+
+                        </td>
+                        <td>
+                            Email
+                        </td>
+                        <td>
+                            First_name
+                        </td>
+                        <td>
+                            Last_name
+                        </td>
+                        <td>
+                            Adress
+                        </td>
+
+                        <td>
+                            Phone_number
+                        </td>
+                        <td>
+                            code
+                        </td>
+                        <td>
+                            FID
+                        </td>
+                    </tr>
+
+                    @foreach (var s in Model.Student)
+                    {
+                        <tr>
+                            <td>
+                                @s.SID
+                            </td>
+
+                            <td>
+                                @s.Email
+                            </td>
+                            <td>
+                                @s.First_name
+                            </td>
+                            <td>
+                                @s.Last_Name
+                            </td>
+                            <td>
+                                @s.Adress
+                            </td>
+                            <td>
+                                @s.Phone_number
+                            </td>
+                            <td>
+                                @s.FID
+                            </td>
+                            <td>
+                                @s.code
+                            </td>
+
+                            <td>
+                                <a href="/Home/Update/@s.SID ">Update</a>
+                            </td>
+                            <td>
+                                <a href="/Home/Delete/@s.SID ">Delete</a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+                
+            </div>
+            <div id="menu2" class="tab-pane fade">
+                <h3>Teachers</h3>
+                <table border="1">
+                    <tr>
+                        <td>
+                            TID
+
+                        </td>
+                        <td>
+                            Email
+                        </td>
+                        <td>
+                            First_name
+                        </td>
+                        <td>
+                            Last_name
+                        </td>
+                        <td>
+                            Adress
+                        </td>
+
+                        <td>
+                            Phone_number
+                        </td>
+                        <td>
+                            code
+                        </td>
+                        <td>
+                            FID
+                        </td>
+                    </tr>
+
+                    @foreach (var t in Model.Teacher)
+                    {
+                        <tr>
+                            <td>
+                                @t.TID
+                            </td>
+
+                            <td>
+                                @t.Email
+                            </td>
+                            <td>
+                                @t.First_name
+                            </td>
+                            <td>
+                                @t.Last_Name
+                            </td>
+                            <td>
+                                @t.Adress
+                            </td>
+                            <td>
+                                @t.Phone_number
+                            </td>
+                            
+                            <td>
+                                @t.code
+                            </td>
+
+                            <td>
+                                <a href="/Home/UpdateTeacher/@t.TID ">Update</a>
+                            </td>
+                            <td>
+                                <a href="/Home/DeleteTeacher/@t.TID ">Delete</a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+
+            </div>
+            
+        </div>
+    
+ 
+
+
+

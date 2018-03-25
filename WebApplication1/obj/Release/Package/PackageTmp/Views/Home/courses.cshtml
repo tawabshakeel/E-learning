@@ -1,0 +1,35 @@
+﻿@model List<WebApplication1.Models.courses>
+
+
+	<header id="head" class="secondary">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8">
+					<h1>Courses</h1>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div id="courses">
+		<section class="container">
+			<h2>Online Courses</h2>
+			<div class="row">
+@foreach (var s in Model)
+    {
+				<div class="col-md-4">
+					<div class="featured-box">
+						<i class="fa fa-cogs fa-2x"></i>
+						<div class="text">
+							<h3>@s.name</h3>
+						    @s.description	
+                        </div>
+					</div>
+				</div>
+}
+				
+				
+			
+		</section>
+	</div>
+	
+

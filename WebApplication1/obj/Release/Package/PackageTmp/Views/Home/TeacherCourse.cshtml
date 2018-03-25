@@ -1,0 +1,58 @@
+﻿@model List<WebApplication1.Models.courses>
+@{
+    Layout=null;
+}
+<script src="~/Scripts/jquery.min.js"></script>
+
+<header id="head" class="secondary">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1>SELECT COURSE (TEACHER)</h1>
+            </div>
+        </div>
+    </div>
+</header>
+<form action="/Home/teacherCourse" method="post">
+    <select class="form-control" name="courses" id="courses">
+        @foreach (var s in Model)
+        {
+            <option value="@s.code">@s.name</option>
+        }
+    </select>
+    <input type="hidden" name="teacher_id" value="@Session["id"]" />
+    <input type="submit">ADD COURSE
+</form>
+
+<script>
+function search() {
+
+             var course_id = $('#courses').find(":selected").val();
+             var teacher_id = @Session["id"]
+            //console.log(user_id);
+            //console.log(courses);
+            ////var arr = courses.split(",");
+            // console.log(arr);
+
+            $.ajax({
+            type: 'POST',
+
+            traditional: true,
+            url: '/Home/teacherCourse',
+            data: {
+                course_id: course_id,
+                teacher_id: teacher_id
+            },
+            //dataType: 'json',
+            error:function(data){
+            console.log(data);
+            },
+            success: function (data) {
+                window.location.href = '/Home/teacherProfile'
+            }
+            });
+            }
+
+
+
+            </script>
